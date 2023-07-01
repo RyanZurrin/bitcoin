@@ -34,8 +34,8 @@ class MempoolPackagesTest(BitcoinTestFramework):
             ],
             [
                 "-maxorphantx=1000",
-                "-limitancestorcount={}".format(MAX_ANCESTORS_CUSTOM),
-                "-limitdescendantcount={}".format(MAX_DESCENDANTS_CUSTOM),
+                f"-limitancestorcount={MAX_ANCESTORS_CUSTOM}",
+                f"-limitdescendantcount={MAX_DESCENDANTS_CUSTOM}",
             ],
         ]
 

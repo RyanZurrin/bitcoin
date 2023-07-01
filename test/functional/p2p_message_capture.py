@@ -46,7 +46,7 @@ def mini_parser(dat_file):
             raw_msgtype = tmp_header.read(MSGTYPE_SIZE)
             msgtype: bytes = raw_msgtype.split(b'\x00', 1)[0]
             remainder =  raw_msgtype.split(b'\x00', 1)[1]
-            assert(len(msgtype) > 0)
+            assert msgtype
             assert(msgtype in MESSAGEMAP)
             assert(len(remainder) == 0 or not remainder.decode().isprintable())
             length: int = int.from_bytes(tmp_header.read(LENGTH_SIZE), "little")
