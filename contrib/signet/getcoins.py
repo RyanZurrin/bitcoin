@@ -102,10 +102,8 @@ if args.faucet.lower() == DEFAULT_GLOBAL_FAUCET:
     if curr_signet_hash != GLOBAL_FIRST_BLOCK_HASH:
         print('The global faucet cannot be used with a custom Signet network. Please use the global signet or setup your custom faucet to use this functionality.\n')
         exit(1)
-else:
-    # For custom faucets, don't request captcha by default.
-    if args.captcha == DEFAULT_GLOBAL_CAPTCHA:
-        args.captcha = ''
+elif args.captcha == DEFAULT_GLOBAL_CAPTCHA:
+    args.captcha = ''
 
 if args.addr == '':
     # get address for receiving coins

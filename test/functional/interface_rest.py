@@ -52,7 +52,7 @@ class RESTTest (BitcoinTestFramework):
         self.skip_if_no_wallet()
 
     def test_rest_request(self, uri, http_method='GET', req_type=ReqType.JSON, body='', status=200, ret_type=RetType.JSON):
-        rest_uri = '/rest' + uri
+        rest_uri = f'/rest{uri}'
         if req_type == ReqType.JSON:
             rest_uri += '.json'
         elif req_type == ReqType.BIN:
@@ -302,8 +302,7 @@ class RESTTest (BitcoinTestFramework):
         self.log.info("Test tx inclusion in the /mempool and /block URIs")
 
         # Make 3 tx and mine them on node 1
-        txs = []
-        txs.append(self.nodes[0].sendtoaddress(not_related_address, 11))
+        txs = [self.nodes[0].sendtoaddress(not_related_address, 11)]
         txs.append(self.nodes[0].sendtoaddress(not_related_address, 11))
         txs.append(self.nodes[0].sendtoaddress(not_related_address, 11))
         self.sync_all()
